@@ -1,0 +1,46 @@
+<div class="container">
+    <header class="modal-header">
+        <h1>2 way data binding</h1>
+    </header>
+    <div class="form-group">
+        <label>Name :</label>
+        <input [(ngModel)]="userInfo.name">
+    </div>
+    <div class="form-group">
+        <label>Age :</label>
+        <input [(ngModel)]="userInfo.age">
+    </div>
+    <div class="form-group">
+        <label>Gender :</label>
+        <input type="radio" name="genderN" [(ngModel)]="userInfo.gender" value="M">Male
+        <input type="radio" name="genderN" [(ngModel)]="userInfo.gender" value="F">Female
+    </div>
+    <div class="form-group">
+        <label>City :</label>
+        <select [(ngModel)]="userInfo.city">
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" [(ngModel)]="userInfo.isagree">I agreee the above terms and conditions.
+    </div>
+
+    <div class="alert alert-success" *ngIf="userInfo.isagree">
+        Welcome {{ userInfo.name }} your age is {{ userInfo.age }}. Your gender is {{ userInfo.gender }} and you are from {{ userInfo.city }}
+    </div>
+
+    <table class="table table-hover table-bordered" *ngIf="userInfo.isagree">
+        <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>CITY</th>
+        </tr>
+        <tr>
+            <td>{{ userInfo.name }}</td>
+            <td>{{ userInfo.age }}</td>
+            <td>{{ userInfo.gender }}</td>
+            <td>{{ userInfo.city }}</td>
+        </tr>
+    </table>
+</div>

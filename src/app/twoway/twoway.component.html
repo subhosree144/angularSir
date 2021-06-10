@@ -1,0 +1,6 @@
+<p>twoway binding!</p>
+
+Name: <input [(ngModel)]="userInfo.name"><br> Age : <input [(ngModel)]="userInfo.age"><br>
+<div *ngIf="userInfo.name != '' && userInfo.age != ''">
+    Welcome {{userInfo.name}} your age is {{userInfo.age}}
+</div>
